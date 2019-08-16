@@ -35,6 +35,7 @@ init_puzzle <- function(nrow=15,ncol=15, symmetry=2) {
                  D,2,9,7
                  D,4,1,7
                  D,4,9,7
+                 D,8,1,15
                  D,12,1,7
                  D,12,9,7
                  D,14,1,7

@@ -6,7 +6,9 @@ Author: Jer Boon
 Maintainer: Jer Boon <jer.booner@gmail.com>
 Description: Utility tools for crossword compiling
 Imports:
-  readr
+  readr,
+  dplyr,
+  lexicon
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true

@@ -11,13 +11,14 @@ puzzle_to_grid <- function(words) {
   for (i in 1:nrow(df)) {
 
     for (j in 1:df[i,]$Length) {
-
-      grid[df[i,]$y + (df[i,]$DA=="D")*(j - 1),
-           df[i,]$x + (df[i,]$DA=="A")*(j - 1)] <-
-        (if (is.na(df[i,]$Word))  " "
-         else substr(df[i,]$Word,j,j)
-        )
-
+      if(grid[df[i,]$y + (df[i,]$DA=="D")*(j - 1),
+              df[i,]$x + (df[i,]$DA=="A")*(j - 1)] %in% c(" ","#")) {
+            grid[df[i,]$y + (df[i,]$DA=="D")*(j - 1),
+                 df[i,]$x + (df[i,]$DA=="A")*(j - 1)] <-
+              (if (is.na(df[i,]$Word))  " "
+               else substr(df[i,]$Word,j,j)
+              )
+      }
     }
   }
 

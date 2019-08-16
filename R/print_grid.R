@@ -6,11 +6,11 @@ print_grid <- function(grid,compact=T) {
 
   if (compact) {
     for (i in 1:nrows)
-      print(paste(grid[i,],sep="",collapse=" "))
+      print(paste(toupper(grid[i,]),sep="",collapse=" "))
   } else {
     for (i in 1:nrows) {
       print(paste(rep("+",ncols+1),collapse="-"))
-      print(paste0("|",paste(grid[i,],sep="",collapse="|"),"|"))
+      print(paste0("|",paste(toupper(grid[i,]),sep="",collapse="|"),"|"))
     }
     print(paste(rep("+",ncols+1),collapse="-"))
   }

@@ -15,7 +15,10 @@ fill_puzzle <- function(puz,random=F) {
   for (i in 1:nrow(puz)) {
     #print(paste(puz[i,]$x,puz[i,]$y,puz[i,]$DA,puz[i,]$Length,random,sep=","))
     #print_puzzle(puz)
-    puz[i,]$Word <- pick_a_word(puzzle_to_grid(puz),puz[i,]$x,puz[i,]$y,puz[i,]$DA,puz[i,]$Length,random=random)
+    if (is.na(puz[i,]$Word)) {
+      cat(paste0("== ",puz[i,]$No, puz[i,]$AD," - "))
+      puz[i,]$Word <- pick_a_word(puzzle_to_grid(puz),puz[i,]$x,puz[i,]$y,puz[i,]$DA,puz[i,]$Length,random=random)
+    }
   }
 
   if (sum(is.na(puz$Word)) > 0)

@@ -18,14 +18,17 @@ pick_a_word <- function(grid, x, y, DA, Length,random=F) {
                         x:(x + (DA=="A")*(Length - 1))], collapse="")
   pattern <- gsub(" ",".",pattern)
   pattern <- tolower(pattern)
+  cat(paste0('"',pattern,'" (',Length,")\n"))
   pattern <- paste0("^",pattern,"$")
   #print(c(" ",pattern))
 
   candidates <- lexicon::grady_augmented[grep(pattern,lexicon::grady_augmented)]
   candidates <- sample(candidates)
 
-  if (length(candidates) == 0)
+  if (length(candidates) == 0) {
+    cat(" No options\n")
     return (NA)
+  }
 
   if (random)
     return(sample(candidates,1))
